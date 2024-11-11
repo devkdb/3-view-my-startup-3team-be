@@ -90,7 +90,9 @@ export const STARTUPS = [
     image: '/images/logo_sparta.png',
   },
   {
-  
+    id: 8,
+    name: '엔코드',
+    categoryId: 3, 
     actualInvest: BigInt(3200000000),
     simInvest: BigInt(1500000000),
     revenue: 200000000,

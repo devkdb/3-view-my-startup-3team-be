@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { CATEGORIES, STARTUPS, MOCK_INVESTORS, SELECTIONS, COMPARISONS } from "./mock.js";
+import { CATEGORIES, STARTUPS, MOCK_INVESTORS} from "./mock.js";
 
 const prisma = new PrismaClient();
 
@@ -7,9 +7,9 @@ async function main() {
   // 테이블을 비우고 시퀀스를 초기화
   // await prisma.$executeRaw`TRUNCATE TABLE "Selection" RESTART IDENTITY CASCADE`;
   // await prisma.$executeRaw`TRUNCATE TABLE "Comparison" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "MockInvestor" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "Startup" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "Category" RESTART IDENTITY CASCADE`;
+  await prisma.mockInvestor.deleteMany();
+  await prisma.startup.deleteMany();
+  await prisma.category.deleteMany();
 
   // 카테고리 데이터 삽입
   await prisma.category.createMany({
@@ -23,11 +23,11 @@ async function main() {
     skipDuplicates: true,
   });
 
-  // 투자자 데이터 삽입
-  await prisma.mockInvestor.createMany({
-    data: MOCK_INVESTORS,
-    skipDuplicates: true,
-  });
+  await Promise.all(
+    MOCK_INVESTORS.map(async (mockInvestor) => {
+      await prisma.mockInvestor.create({data:mockInvestor});
+    })
+  );
 
   // // Selection 데이터 삽입
   // await prisma.selection.createMany({
