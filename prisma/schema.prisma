@@ -15,6 +15,7 @@ datasource db {
 
 model Startup {
   id             Int            @id @default(autoincrement())
+  name           String         @unique
   actualInvest   BigInt         @default(0)
   siminvest      BigInt         @default(0)
   revenue        BigInt         @default(0)
