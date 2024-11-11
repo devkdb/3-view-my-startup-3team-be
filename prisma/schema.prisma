@@ -23,19 +23,19 @@ model Startup {
   description    String
   count          Int            @default(0)
   image          String?
-  Category       Category?      @relation(fields: [categoryId], references: [id])
-  categoryId     Int?
+  Category       Category       @relation(fields: [categoryId], references: [id])
+  categoryId     Int
   mockInvestorId MockInvestor[]
 }
 
 model MockInvestor {
-  id           Int      @id @default(autoincrement())
-  name         String   @db.VarChar(10)
-  investAmount BigInt   @default(0)
+  id           Int     @id @default(autoincrement())
+  name         String  @db.VarChar(10)
+  investAmount BigInt  @default(0)
   comment      String
-  password     String   @db.VarChar(40)
-  Startup      Startup? @relation(fields: [startupId], references: [id])
-  startupId    Int?
+  password     String  @db.VarChar(40)
+  Startup      Startup @relation(fields: [startupId], references: [id])
+  startupId    Int
 }
 
 model Category {
