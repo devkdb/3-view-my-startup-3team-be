@@ -17,21 +17,21 @@ model Startup {
   id             Int            @id @default(autoincrement())
   name           String         @unique
   actualInvest   BigInt         @default(0)
-  siminvest      BigInt         @default(0)
+  simInvest      BigInt         @default(0)
   revenue        BigInt         @default(0)
   employees      Int            @default(0)
   description    String
   count          Int            @default(0)
   image          String?
-  Category       Category       @relation(fields: [CategoryId], references: [id])
-  CategoryId     Int
-  mockInvestorId Mockinvestor[]
+  Category       Category?      @relation(fields: [categoryId], references: [id])
+  categoryId     Int?
+  mockInvestorId MockInvestor[]
 }
 
-model Mockinvestor {
+model MockInvestor {
   id           Int     @id @default(autoincrement())
   name         String  @db.VarChar(10)
-  InvestAmount BigInt  @default(0)
+  investAmount BigInt  @default(0)
   comment      String
   password     String  @db.VarChar(40)
   Startup      Startup @relation(fields: [startupId], references: [id])
