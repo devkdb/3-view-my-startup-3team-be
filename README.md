@@ -12,7 +12,7 @@
 
 배진한(개인 Github 링크)
 
-임예지(개인 Github 링크)
+임예지(https://github.com/Bluemoon105)
 
 최종훈(개인 Github 링크)
 
