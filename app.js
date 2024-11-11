@@ -2,16 +2,6 @@ import * as dotenv from "dotenv";
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 
-const CATEGORIES = [
-  "FASHION",
-  "BEAUTY",
-  "SPORTS",
-  "ELECTRONICS",
-  "HOME_INTERIOR",
-  "HOUSEHOLD_SUPPLIES",
-  "KITCHENWARE",
-];
-
 dotenv.config();
 
 const prisma = new PrismaClient();
