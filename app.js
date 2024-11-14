@@ -106,27 +106,10 @@ app.get('/selection', async (req, res) => {
 })
 
 //전체 투자 현황 조회
-app.get("/investments", async(req, res) => {
-  const {offset = 0, limit =10} =req.query;
-  try{
-    const invest = await prisma.mockInvestor.findMany({
-      orderBy: {id: "asc"},
-      skip: parseInt(offset),
-      take:parseInt(limit),
-    });
-    const serializedInvest = JSON.stringify(invest, replacer); res.send(serializedInvest);
-  }catch(error) {res.status(401).send({message:error.message});}
-})
+
 
 //특정기업에 투자하기
-app.post("/investments", async(req, res) => {
-  try{
-    const createInvest = await prisma.mockInvestor.create({
-      data: req.body
-    });
-    res.status(200).send(createInvest);
-  }catch(error) {res.status(400).send({message: error.message}); }
-})
+
 
 
 
