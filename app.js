@@ -69,7 +69,7 @@ app.get("/startups/:id", async (req, res) => {
   }catch(error) {res.status(404).send({message: error.message}); }
 });
 
-//검색 기능
+//검색 기능 
 app.get("/startups/search", async (req, res) => {
   const { searchKeyword, offset = 0, limit = 10} =req.query;
   console.log(searchKeyword);
@@ -87,6 +87,7 @@ app.get("/startups/search", async (req, res) => {
 })
 
 
+//기업 선택 횟수 조회
 app.get('/selection', async (req, res) => {
   const { offset = 0, limit = 10 } = req.query;
   try{
@@ -103,6 +104,20 @@ app.get('/selection', async (req, res) => {
   } catch(error) {res.status(400).send({message:error.message});}
 })
 
+//전체 투자 현황 조회
+app.get("/investments", async(req, res) => {
+  const {offset = 0, limit =10} =req.query;
+  try{
+    const invest = await prisma.mockInvestor.findMany({
+      orderBy: {id: "asc"},
+      skip: parseInt(offset),
+      take:parseInt(limit),
+    });
+    const serializedInvest = JSON.stringify(invest, replacer); res.send(serializedInvest);
+  }catch(error) {res.status(401).send({message:error.message});}
+})
+
+//특정기업에 투자하기
 app.post("/investments", async(req, res) => {
   try{
     const createInvest = await prisma.mockInvestor.create({
