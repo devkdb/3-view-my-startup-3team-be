@@ -26,7 +26,7 @@ model Startup {
   Category       Category       @relation(fields: [categoryId], references: [id])
   categoryId     Int
   mockInvestorId MockInvestor[]
-  // comparisons    Comparison[]
+  Comparison     Comparison[]
 }
 
 model MockInvestor {
@@ -45,9 +45,9 @@ model Category {
   startupId Startup[]
 }
 
-// model Comparison {
-//   id        Int     @id @default(autoincrement())
-//   compare   Boolean @default(false)
-//   Startup   Startup @relation(fields: [startupId], references: [id], onDelete: Cascade)
-//   startupId Int
-// }
+model Comparison {
+  id        Int     @id @default(autoincrement())
+  compare   Boolean @default(false)
+  Startup   Startup @relation(fields: [startupId], references: [id], onDelete: Cascade)
+  startupId Int
+}
