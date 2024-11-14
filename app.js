@@ -37,6 +37,7 @@ function replacer(key, value) {
   return typeof value === 'bigint' ? value.toString() : value;
 }
 
+//전체 기업 조회
 app.get('/startups', async (req, res) => {
   const { offset = 0, limit = 10, order = 'id' } = req.query;
   let orderBy;
