@@ -65,7 +65,6 @@ app.get("/startups/:id", async (req, res) => {
   try {
     const startup = await prisma.startup.findUnique({
       where: { id: numId },
-      include:{category:true},
     });
     const serializedStartups = JSON.stringify(startup, replacer); res.send(serializedStartups);
   }catch(error) {res.status(404).send({message: error.message}); }
