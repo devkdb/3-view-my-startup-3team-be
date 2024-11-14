@@ -65,15 +65,15 @@ app.get("/startups/:id", async (req, res) => {
   try {
     const startup = await prisma.startup.findUnique({
       where: { id: numId },
+      include:{category:true},
     });
     const serializedStartups = JSON.stringify(startup, replacer); res.send(serializedStartups);
   }catch(error) {res.status(404).send({message: error.message}); }
 });
 
-//검색 기능(오류나서 아직 하는 중)
+//검색 기능
 app.get("/startups/search", async (req, res) => {
   const { searchKeyword, offset = 0, limit = 10} =req.query;
-  console.log(searchKeyword);
   try {
     const startup = await prisma.startup.findMany({
       orderBy: {id: "asc"},
