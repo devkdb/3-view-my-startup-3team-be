@@ -69,7 +69,7 @@ app.get("/startups/:id", async (req, res) => {
   }catch(error) {res.status(404).send({message: error.message}); }
 });
 
-//검색 기능 
+//검색 기능(오류나서 아직 하는 중)
 app.get("/startups/search", async (req, res) => {
   const { searchKeyword, offset = 0, limit = 10} =req.query;
   console.log(searchKeyword);
