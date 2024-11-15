@@ -1041,45 +1041,30 @@ export const MOCK_INVESTORS = [
 //   },
 // ]
 		
-// export const COMPARISONS = [
-//   {
-//     id: 1,
-//     sessionId: 'caaaaaaaa',
-//     isCompared: true, 
-//     startupId: 6,
-//     createdAt: '2024-09-22T09:00:00Z',
-//     updatedAt: '2024-09-22T09:00:00Z',
-//   },
-//   {
-//     id: 2,
-//     sessionId: 'cbbbbbbbbb',
-//     isCompared: true, 
-//     startupId: 7,
-//     createdAt: '2024-09-21T09:00:00Z',
-//     updatedAt: '2024-09-21T09:00:00Z',
-//   },
-//   {
-//     id: 3,
-//     sessionId: 'ccccccccc',
-//     isCompared: true, 
-//     startupId: 8,
-//     createdAt: '2024-09-20T09:00:00Z',
-//     updatedAt: '2024-09-20T09:00:00Z',
-//   },
-//   {
-//     id: 4,
-//     sessionId: 'cdddddddd',
-//     isCompared: true, 
-//     startupId: 9,
-//     createdAt: '2024-09-19T09:00:00Z',
-//     updatedAt: '2024-09-19T09:00:00Z',
-//   },
-//   {
-//     id: 5,
-//     sessionId: 'ceeeeeeee',
-//     isCompared: true, 
-//     startupId: 10,
-//     createdAt: '2024-09-18T09:00:00Z',
-//     updatedAt: '2024-09-18T09:00:00Z',
-//   },
-// ]	
+export const COMPARISONS = [
+  {
+    id: 1,
+    compare: true, 
+    startupId: 6,
+  },
+  {
+    id: 2,
+    compare: true, 
+    startupId: 7,
+  },
+  {
+    id: 3,
+    compare: true, 
+    startupId: 8,
+  },
+  {
+    id: 4,
+    compare: true, 
+    startupId: 9,
+  },
+  {
+    id: 5,
+    compare: true, 
+    startupId: 10,
+  },
+]	
