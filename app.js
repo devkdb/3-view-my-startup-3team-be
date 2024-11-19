@@ -60,11 +60,10 @@ app.get("/companies", async (req, res) => {
   }
   try {
     const startups = await prisma.startup.findMany({
-      include: { category: true },
+      include: { Category: true },
       orderBy,
       skip: parseInt(offset),
       take: parseInt(limit),
-      incluede: { category: true },
     }); // BigInt 값을 문자열로 변환하여 JSON 응답 생성
     const serializedStartups = JSON.stringify(startups, replacer);
     res.send(serializedStartups);

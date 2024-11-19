@@ -1,12 +1,12 @@
 ###
-GET http://localhost:8000/startups
+GET http://localhost:8000/companies
 
 ###
-GET http://localhost:8000/startups/3
+GET http://localhost:8000/companies/4
 
 
 ###
-GET http://localhost:8000/selection
+GET http://localhost:8000/selections
 
 ###
-GEt http://localhost:8000/startups/search?코드
+GEt http://localhost:8000/companies/search?코드
