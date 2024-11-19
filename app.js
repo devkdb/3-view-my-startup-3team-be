@@ -76,25 +76,6 @@ app.get("/companies", async (req, res) => {
 // api: /companies/comparison GET
 // app.get("/companies/comparison", async (req, res) => {}
 
-//특정 기업 상세 조회
-app.get("/companies/:id", async (req, res) => {
-  const { id } = req.params;
-  const numId = parseInt(id, 10);
-  try {
-    const startup = await prisma.startup.findUnique({
-      where: { id: numId },
-    });
-    const serializedStartups = JSON.stringify(startup, replacer);
-    res.send(serializedStartups);
-  } catch (error) {
-    res.status(404).send({ message: error.message });
-  }
-});
-
-// 내 기업의 순위와 근접한 순위의 기업 정보 확인
-// api: /companies/{companyId}/rank GET
-// app.get("/companies/id/rank", async (req, res) => {}
-
 // 검색 기능
 app.get("/companies/search", async (req, res) => {
   const { searchKeyword, offset = 0, limit = 10 } = req.query;
@@ -113,6 +94,25 @@ app.get("/companies/search", async (req, res) => {
     res.status(404).send({ message: error.message });
   }
 });
+
+//특정 기업 상세 조회
+app.get("/companies/:id", async (req, res) => {
+  const { id } = req.params;
+  const numId = parseInt(id, 10);
+  try {
+    const startup = await prisma.startup.findUnique({
+      where: { id: numId },
+    });
+    const serializedStartups = JSON.stringify(startup, replacer);
+    res.send(serializedStartups);
+  } catch (error) {
+    res.status(404).send({ message: error.message });
+  }
+});
+
+// 내 기업의 순위와 근접한 순위의 기업 정보 확인
+// api: /companies/{companyId}/rank GET
+// app.get("/companies/id/rank", async (req, res) => {}
 
 // 기업 선택 횟수 조회
 app.get("/selections", async (req, res) => {
