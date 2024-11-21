@@ -7,7 +7,6 @@ import orderByStartup from './orderByFunction.js';
 import asyncHandler from './asyncHandlerFunction.js';
 import paginationHandler from './paginationHandler.js';
 import { CreateInvest, PatchInvest } from './structs.js';
-// import { number } from 'superstruct';
 import { assert } from 'superstruct';
 
 const prisma = new PrismaClient();
@@ -138,7 +137,7 @@ app.get('/api/investments', asyncHandler(async (req, res) => {
   res.send(JSON.stringify(responseData, replacer));
 }));
 
-// 특정 기업에 투자하기(POST: /api/investmentts/{investmentId})
+// 특정 기업에 투자하기(POST: /api/investmentts)
 app.post("/investments", async(req, res) => {
   assert(req.body, CreateInvest);
   try{
