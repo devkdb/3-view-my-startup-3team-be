@@ -16,6 +16,7 @@ export const STARTUPS = [
     employees: 500,
     description: '코드잇은 \'온라인 코딩 교육 서비스\'를 운영하는 EdTech 스타트업입니다.\n\n코딩 교육과 데이터 사이언스 교육에 대한 수요는 급격히 늘어나고 있지만, 아직까지 좋은 교육 서비스를 찾기란 쉽지 않습니다. 이를 해결하고자 코드잇은 모든 강의를 자체 제작하여 퀄리티 높은 콘텐츠를 제공하고, 동시에 코딩 교육에 최적화된 플랫폼을 개발하고 있습니다.\n\n모든 강의를 마음껏 들을 수 있는 "코드잇 무제한 멤버십"을 제공하고 있으며, 지난 5년 동안 21만 명의 수강생과 평균만족도 4.9점이라는 국내 교육 업계에서 보기 드문 성과를 달성하였습니다. 또한 콘텐츠와 기술력을 인정받아 2021년 10월 Series B 투자를 받아 누적 140억 원 투자를 받았고, 현재 40여 명의 팀원이 같은 목표를 향해 나아가고 있습니다.\n\n"배움의 기쁨을 세상 모두에게."\n\n이것이 코드잇의 비전입니다. 현재는 최고의 코딩 교육 서비스를 국내에서 제공하고 있지만, 이보다 더 큰 그림을 그리고 있습니다. 2021년 상반기부터 영어권 시장 진출을 시작했고, 코딩과 인접한 분야부터 스펙트럼을 넓혀 나갈 계획입니다.',
     count: 13,
+    compareCount: 28,
     image: '/images/logo_codeit.png',
   },
   {
@@ -28,6 +29,7 @@ export const STARTUPS = [
     employees: 100,
     description: '매스프레소는 \'AI 기반 교육 플랫폼 서비스\'를 운영하는 EdTech 스타트업입니다.\n\n학생들이 어려움을 겪는 문제를 손쉽게 해결할 수 있도록, 매스프레소는 인공지능 기술을 활용하여 수학 문제 해결 및 학습 지원 서비스를 제공합니다. 대표 서비스인 "콴다"는 문제를 찍어 올리면 해답을 제공하는 기능으로 많은 학생들에게 큰 인기를 끌고 있으며, 5천만 이상의 사용자를 보유하고 있습니다.\n\n교육의 격차를 줄이고 누구나 쉽게 학습할 수 있는 환경을 만들기 위해, 매스프레소는 AI 기술을 지속적으로 고도화하며, 다양한 교육 콘텐츠를 추가하여 플랫폼을 확장해 나가고 있습니다. 이러한 성과를 인정받아 Series C 투자 유치를 통해 누적 1천억 원 이상의 자금을 확보하였으며, 전 세계 교육 시장으로의 진출을 계획하고 있습니다.\n\n"교육의 기회를 모두에게."\n\n이것이 매스프레소의 비전입니다. 매스프레소는 학생들이 보다 쉽게 학습하고 성공할 수 있도록 돕는 혁신적인 교육 플랫폼을 구축하고 있으며, 향후 글로벌 교육 시장에서도 그 영향력을 확장해 나갈 계획입니다.',
     count: 8,
+    compareCount: 28,
     image: '/images/logo_mathpresso.png',
   },
   {
@@ -40,6 +42,7 @@ export const STARTUPS = [
     employees: 700,
     description: '엘리스는 \'편리한 올인원 AI 교육 플랫폼\'을 운영하는 EdTech 스타트업입니다.\n\n엘리스는 학습자에게 최적화된 AI 기반 교육 솔루션을 제공하여, 학습 과정에서의 효율성을 극대화하고 있습니다. 인터랙티브 실습 환경을 통해 학습자들은 이론과 실습을 동시에 진행할 수 있으며, 스마트한 AI 학습 관리 시스템은 학습 성과를 분석하고 개인 맞춤형 학습 경로를 제시합니다.\n\n엘리스는 다양한 분야의 코딩 교육 및 AI 관련 강의를 제공하며, 교육의 질을 높이기 위해 지속적으로 콘텐츠를 개발하고 있습니다. 이러한 차별화된 AI 기능을 바탕으로 10만 명 이상의 수강생이 엘리스를 통해 학습을 진행하고 있으며, 국내 교육 시장에서 두각을 나타내고 있습니다.\n\n"모두가 쉽게 학습할 수 있는 세상."\n\n이것이 엘리스의 비전입니다. 엘리스는 현재의 AI 교육 플랫폼을 발전시키고, 글로벌 시장에서의 입지를 넓히기 위해 꾸준히 성장하고 있으며, 더 많은 학습자들에게 차별화된 학습 경험을 제공하는 것을 목표로 하고 있습니다.',
     count: 11,
+    compareCount: 28,
     image: '/images/logo_elice.png',
   },
   {
@@ -52,6 +55,7 @@ export const STARTUPS = [
     employees: 800,
     description: '뤼이드는 AI를 활용한 학습 개인화와 시험 준비 솔루션을 제공합니다.',
     count: 17,
+    compareCount: 28,
     image: '/images/logo_riiid.png',
   },
   {
@@ -64,6 +68,7 @@ export const STARTUPS = [
     employees: 600,
     description: '프로그래밍, 영상편집, UX/UI, 마케팅, 데이터 분석, 엑셀강의, The RED, 국비지원 교육과정을 제공하는 플랫폼입니다.',
     count: 5,
+    compareCount: 28,
     image: '/images/logo_fastcampus.png',
   },
   {
@@ -75,7 +80,8 @@ export const STARTUPS = [
     revenue: BigInt(1100000000),
     employees: 400,
     description: '럭스로보는 로봇 기술을 기반으로 교육용 로봇, 사물인터넷(IoT) 플랫폼을 개발하는 스타트업으로, 모듈형 코딩 키트와 로봇을 통해 코딩 교육을 제공합니다.',
-    count: 0,
+    count: 8,
+    compareCount: 28,
     image: '/images/logo_luxrobo.png',
   },
   {
@@ -87,7 +93,8 @@ export const STARTUPS = [
     revenue: 300000000,
     employees: 800,
     description: '스파르타코딩클럽은 초보자부터 실무 개발자까지 누구나 쉽게 코딩을 배울 수 있도록 돕는 대한민국 대표 코딩 교육 플랫폼입니다. 실무 중심의 교육과 실전 프로젝트 기반 학습을 통해 단기간에 코딩 실력을 쌓을 수 있도록 지원합니다.',
-    count: 0,
+    count: 8,
+    compareCount: 28,
     image: '/images/logo_sparta.png',
   },
   {
@@ -99,7 +106,8 @@ export const STARTUPS = [
     revenue: 200000000,
     employees: 800,
     description: '엔코드는 국내 최초 럭셔리 프리오더 플랫폼 디코드를 운영하는 회사로, 지속 가능한 소비 문화를 구축하는 것을 목표로 하고 있습니다.	',
-    count: 0,
+    count: 8,
+    compareCount: 28,
     image: '/images/logo_ncode.png',
   },
   {
@@ -111,7 +119,8 @@ export const STARTUPS = [
     revenue: 130000000,
     employees: 400,
     description: '직방은 \'온라인 부동산 플랫폼\'을 운영하는 PropTech 스타트업입니다.\n\n직방은 혁신적인 부동산 거래 서비스를 제공하여, 사용자가 편리하게 주거 정보를 검색하고 부동산 거래를 진행할 수 있도록 돕고 있습니다. 모바일 앱을 통해 아파트, 오피스텔, 원룸 등 다양한 주거 매물 정보를 제공하며, 3D 단지 투어, VR 홈 투어와 같은 첨단 기술을 도입하여 더 나은 사용자 경험을 제공합니다.\n\n직방은 부동산 정보의 투명성과 신뢰성을 높이기 위해 노력하고 있으며, 이를 위해 인증된 중개사들과의 협력을 강화하고 있습니다. 또한, 직방은 빅데이터와 인공지능(AI)을 활용하여 사용자 맞춤형 매물 추천 서비스를 제공하고, 빠르고 효율적인 부동산 거래를 지원하고 있습니다. 이러한 혁신적인 서비스로 현재 수백만 명의 사용자와 부동산 거래를 연결하며, 국내 부동산 시장에서 선도적인 위치를 차지하고 있습니다.\n\n직방은 사용자에게 더 나은 주거 경험을 제공하기 위해 끊임없이 발전하고 있으며, 앞으로 글로벌 시장으로의 확장을 통해 전 세계적으로 혁신적인 부동산 서비스를 제공할 계획입니다.',
-    count: 0,
+    count: 8,
+    compareCount: 28,
     image: '/images/logo_zigbang.png',
   },
   {
@@ -123,7 +132,8 @@ export const STARTUPS = [
     revenue: 230000000,
     employees: 1000,
     description: '당근마켓은 지역 기반의 중고 거래 플랫폼으로, 사용자들이 가까운 지역에서 중고 물품을 쉽게 사고팔 수 있도록 연결해주는 서비스입니다. 친근한 사용자 경험과 지역 커뮤니티 활성화를 통해 신뢰할 수 있는 중고 거래 환경을 제공합니다.',
-    count: 0,
+    count: 8,
+    compareCount: 28,
     image: '/images/logo_daangn.png',
   },
   {
@@ -135,7 +145,8 @@ export const STARTUPS = [
     revenue: 230000000000,
     employees: 2000,
     description: '쿠팡은 \'온라인 쇼핑 서비스\'를 운영하는 eCommerce 스타트업입니다.\n\n한국을 대표하는 온라인 쇼핑 플랫폼으로, 쿠팡은 고객에게 편리하고 빠른 쇼핑 경험을 제공하기 위해 혁신적인 기술을 개발하고 있습니다. 물류 인프라를 기반으로 한 로켓배송은 다음 날 배송을 보장하며, 이는 국내 유통업계에서 혁신적인 서비스로 평가받고 있습니다.\n\n고객을 중심으로 한 서비스 개선을 지속적으로 추진하며, 다양한 제품 카테고리와 신속한 배송 서비스로 1천만 명 이상의 활성 고객을 확보하였습니다. 이러한 성과를 바탕으로 2021년 미국 뉴욕 증권거래소에 상장하여 글로벌 시장에서의 성장을 가속화하고 있습니다.\n\n"모든 고객에게 최고의 쇼핑 경험을."\n\n이것이 쿠팡의 비전입니다. 쿠팡은 단순한 쇼핑몰을 넘어, IT 기술과 물류 혁신을 결합한 새로운 커머스 플랫폼을 구축하고 있으며, 향후 글로벌 시장으로의 확장을 목표로 하고 있습니다.',
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_coupang.png',
   },
   {
@@ -147,7 +158,8 @@ export const STARTUPS = [
     revenue: 25000000,
     employees: 300,
     description: '센드버드는 실시간 채팅 및 메시징 솔루션을 제공하는 글로벌 스타트업으로, 앱 내 채팅 기능을 손쉽게 통합할 수 있는 API를 제공합니다.',
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_sandbird.png',
   },
   {
@@ -159,7 +171,8 @@ export const STARTUPS = [
     revenue: 35000000,
     employees: 210,
     description: '빅밸류는 부동산 데이터 분석 솔루션을 제공하는 스타트업으로, 인공지능과 빅데이터를 활용해 부동산의 가치를 평가하고 매물 정보를 제공합니다. 특히 아파트 시세를 예측하고 분석하는 데 특화된 솔루션을 제공하여 부동산 시장에서의 의사결정을 돕고 있습니다.',
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_bigvalue.png',
   },
   {
@@ -173,6 +186,7 @@ export const STARTUPS = [
     description:
       '마켓컬리는 신선한 식료품과 생활용품을 빠르고 신선하게 배송하는 프리미엄 온라인 장보기 플랫폼입니다. 고객의 라이프스타일을 향상시키기 위해 퀄리티 높은 상품과 서비스를 제공하며, 샛별배송으로 빠른 새벽 배송 서비스를 제공합니다.',
     count: 10,
+    compareCount: 26,
     image: '/images/logo_marketkurly.png',
   },
   {
@@ -186,6 +200,7 @@ export const STARTUPS = [
     description:
       '레진코믹스는 웹툰 플랫폼으로, 다양한 장르의 웹툰을 서비스하며 많은 독자들에게 사랑받고 있습니다. 글로벌 시장으로의 진출을 통해 더 많은 독자들에게 퀄리티 높은 콘텐츠를 제공하고 있습니다.',
     count: 15,
+    compareCount: 26,
     image: '/images/logo_lezhin.png',
   },
   {
@@ -199,6 +214,7 @@ export const STARTUPS = [
     description:
       '마이리얼트립은 전 세계 여행지에서 현지 가이드와 체험 활동을 예약할 수 있는 여행 플랫폼입니다. 고객의 취향에 맞춘 다양한 여행 상품을 제공하며, 맞춤형 여행 계획을 지원합니다.',
     count: 12,
+    compareCount: 26,
     image: '/images/logo_myrealtrip.png',
   },
   {
@@ -212,6 +228,7 @@ export const STARTUPS = [
     description:
       '토스는 간편 송금 및 금융 서비스를 제공하는 핀테크 스타트업으로, 사용자가 편리하게 송금, 결제, 금융 상품을 이용할 수 있도록 돕습니다. 빠르고 안전한 금융 서비스를 제공하여 많은 사용자의 신뢰를 받고 있습니다.',
     count: 20,
+    compareCount: 26,
     image: '/images/logo_toss.png',
   },
   {
@@ -225,6 +242,7 @@ export const STARTUPS = [
     description:
       '오늘의집은 인테리어 플랫폼으로, 사용자들이 집 꾸미기 아이디어를 얻고, 필요한 제품을 구매할 수 있도록 돕습니다. 다양한 인테리어 사례와 제품 리뷰를 제공하여 고객의 만족도를 높이고 있습니다.',
     count: 18,
+    compareCount: 26,
     image: '/images/logo_ohou.png',
   },
   {
@@ -238,6 +256,7 @@ export const STARTUPS = [
     description:
       '야놀자는 숙박 및 여가 플랫폼으로, 호텔, 모텔, 펜션 등 다양한 숙박 옵션을 제공하며 사용자들이 쉽게 예약할 수 있도록 돕습니다. 여행과 여가를 즐기는 모든 순간을 더 즐겁게 만들어주는 다양한 서비스를 제공하고 있습니다.',
     count: 16,
+    compareCount: 26,
     image: '/images/logo_yanolja.png',
   },
   {
@@ -251,6 +270,7 @@ export const STARTUPS = [
     description:
       '집닥은 인테리어 중개 플랫폼으로, 고객이 쉽고 편리하게 인테리어 서비스를 이용할 수 있도록 돕습니다. 다양한 인테리어 전문가와의 매칭 서비스를 제공하며, 고객 만족도를 높이고 있습니다.',
     count: 14,
+    compareCount: 26,
     image: '/images/logo_zipdoc.png',
   },
   {
@@ -264,6 +284,7 @@ export const STARTUPS = [
     description:
       '뱅크샐러드는 개인의 금융 정보를 분석하여 맞춤형 금융 상품을 추천하는 핀테크 서비스입니다. 사용자가 쉽게 금융 관리를 할 수 있도록 도와주는 다양한 기능을 제공하고 있습니다.',
     count: 22,
+    compareCount: 26,
     image: '/images/logo_banksalad.png',
   },
   {
@@ -277,6 +298,7 @@ export const STARTUPS = [
     description:
       '직방은 온라인 부동산 플랫폼으로, 사용자들이 쉽고 빠르게 주택 정보를 검색하고 거래할 수 있도록 돕습니다. 다양한 주거 매물 정보를 제공하며, 사용자 맞춤형 매물 추천 서비스를 제공합니다.',
     count: 20,
+    compareCount: 26,
     image: '/images/logo_zigbang.png',
   },
   {
@@ -290,6 +312,7 @@ export const STARTUPS = [
     description:
       '네이버는 대한민국의 대표적인 인터넷 서비스 기업으로, 검색 엔진, 포털 사이트, 온라인 쇼핑, 클라우드 서비스 등 다양한 인터넷 서비스를 제공합니다. 기술 혁신과 사용자 중심의 서비스를 바탕으로 글로벌 시장에서도 활발히 활동하고 있습니다.',
     count: 100,
+    compareCount: 26,
     image: '/images/logo_naver.png',
   },
   {
@@ -303,6 +326,7 @@ export const STARTUPS = [
     description:
       '카카오는 메신저, 금융, 쇼핑, 콘텐츠 등 다양한 서비스를 제공하는 대한민국의 대표적인 IT 기업입니다. 카카오톡을 비롯한 다양한 플랫폼을 통해 사용자들에게 편리하고 혁신적인 서비스를 제공하며, 글로벌 시장에서도 영향력을 확대하고 있습니다.',
     count: 95,
+    compareCount: 26,
     image: '/images/logo_kakao.png',
   },
   {
@@ -315,6 +339,7 @@ export const STARTUPS = [
     employees: 350,
     description: '리디북스는 전자책 플랫폼으로, 다양한 장르의 도서를 디지털화하여 독자들에게 제공하고 있습니다. 독자 친화적인 인터페이스와 다양한 디지털 콘텐츠를 통해 독서 문화에 혁신을 가져왔습니다.',
     count: 12,
+    compareCount: 26,
     image: '/images/logo_ridi.png',
   },
   {
@@ -327,6 +352,7 @@ export const STARTUPS = [
     employees: 180,
     description: '번개장터는 모바일 기반의 중고 거래 플랫폼으로, 사용자들이 손쉽게 물품을 사고팔 수 있도록 돕는 서비스를 제공합니다. 빠르고 안전한 거래 시스템과 커뮤니티 기능으로 사용자 경험을 향상시키고 있습니다.',
     count: 15,
+    compareCount: 26,
     image: '/images/logo_bunjang.png',
   },
   {
@@ -339,6 +365,7 @@ export const STARTUPS = [
     employees: 600,
     description: '타다는 차량 공유 플랫폼으로, 사용자가 편리하게 이동할 수 있도록 다양한 이동 서비스를 제공합니다. 프리미엄 택시와 렌터카 서비스를 통해 모빌리티 시장을 혁신하고 있습니다.',
     count: 18,
+    compareCount: 26,
     image: '/images/logo_tada.png',
   },
   {
@@ -351,6 +378,7 @@ export const STARTUPS = [
     employees: 300,
     description: '클래스101은 다양한 분야의 온라인 강의를 제공하는 플랫폼으로, 사용자들이 창작 활동과 자기 계발을 위해 필요한 모든 것을 제공받을 수 있도록 돕고 있습니다.',
     count: 10,
+    compareCount: 26,
     image: '/images/logo_class101.png',
   },
   {
@@ -363,6 +391,7 @@ export const STARTUPS = [
     employees: 200,
     description: '직감은 B2B 기반의 데이터 분석 솔루션을 제공하는 스타트업으로, 기업이 실시간 데이터를 바탕으로 더 나은 의사결정을 내릴 수 있도록 지원합니다.',
     count: 9,
+    compareCount: 26,
     image: '/images/logo_ziggam.png',
   },
   {
@@ -375,6 +404,7 @@ export const STARTUPS = [
     employees: 150,
     description: '캐시노트는 소상공인을 위한 금융 관리 플랫폼으로, 매출 분석, 고객 관리, 자금 관리 등 다양한 서비스를 제공합니다.',
     count: 12,
+    compareCount: 26,
     image: '/images/logo_cashnote.png',
   },
   {
@@ -387,6 +417,7 @@ export const STARTUPS = [
     employees: 2000,
     description: '요기요는 대한민국의 대표적인 배달 플랫폼으로, 사용자가 간편하게 음식 배달을 주문할 수 있도록 돕습니다. 혁신적인 사용자 경험과 다양한 음식 옵션을 제공하여 시장 점유율을 확대하고 있습니다.',
     count: 25,
+    compareCount: 26,
     image: '/images/logo_yogiyo.png',
   },
   {
@@ -399,6 +430,7 @@ export const STARTUPS = [
     employees: 120,
     description: '왓챠는 영화와 드라마의 개인화 추천 서비스를 제공하는 스트리밍 플랫폼으로, 사용자의 취향에 맞춘 콘텐츠 큐레이션을 통해 독보적인 경험을 제공합니다.',
     count: 14,
+    compareCount: 26,
     image: '/images/logo_watcha.png',
   },
   {
@@ -411,6 +443,7 @@ export const STARTUPS = [
     employees: 500,
     description: '무신사는 국내 최대의 패션 커머스 플랫폼으로, 트렌디한 의류와 액세서리를 제공하며 젊은 소비자층을 중심으로 높은 인기를 끌고 있습니다.',
     count: 20,
+    compareCount: 26,
     image: '/images/logo_musinsa.png',
   },
   {
@@ -423,6 +456,7 @@ export const STARTUPS = [
     employees: 100,
     description: '윌라는 오디오북과 강연 콘텐츠를 제공하는 서비스로, 바쁜 현대인들이 어디서나 지식을 접할 수 있도록 돕습니다.',
     count: 8,
+    compareCount: 26,
     image: '/images/logo_welaaa.png',
   },
   {
@@ -435,6 +469,7 @@ export const STARTUPS = [
     employees: 300,
     description: '마켓보로는 식자재 유통 플랫폼으로, 레스토랑 및 카페와 공급업체를 연결하여 효율적인 거래를 지원합니다.',
     count: 11,
+    compareCount: 26,
     image: '/images/logo_marketboro.png',
   },
   {
@@ -446,7 +481,8 @@ export const STARTUPS = [
     revenue: BigInt(36000000),
     employees: 225,
     description: "코드스테이츠(Codestates)는 서울에 본사를 둔 코딩 에듀테크 기업입니다. 2017년에 설립되어 2022년까지 40개 이상의 국가에서 1,000명 이상의 개발자를 교육했습니다. 코드스테이츠는 개발자 육성을 위해 다양한 코딩 교육 과정과 프로그램을 제공합니다. 여기에는 프론트엔드, 백엔드, 풀스택 개발자 교육 등이 포함됩니다. 특이 사항으로, 개발자의 취업 연계 서비스를 제공합니다. 이러한 교육 과정은 실무자로서의 경험이 풍부한講師들이 직접 교육을 담당하기 때문에, 학생들은 현업에서 요구되는 실무 능력을 학습할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_codestate.png',
   },
   {
@@ -458,7 +494,8 @@ export const STARTUPS = [
     revenue: BigInt(50000000),
     employees: 226,
     description: "블루코드는 세계적인 코딩 기계장비 기업으로서, 다양한 산업 분야에서 사용되는 장비들을 개발 및 생산하고 있습니다. 이ิษ의 주요 제품으로는 자동화된 코딩 시스템, 로봇 공작기계, CNC 기계 및 기타 산업용 장비들이 포함됩니다. 블루코드는 1980년대 후반에 설립되었으며, 초기에는 하드웨어 및 소프트웨어 개발에 주력했습니다. 이후 1990년대에 산업용 장비 개발을 시작 있으며, 현재는 전 세계적으로 퍼져있는 글로벌 기업 중 하나로 성장했습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_bluecode.png',
   },
   {
@@ -470,7 +507,8 @@ export const STARTUPS = [
     revenue: BigInt(38000000),
     employees: 227,
     description: "씨코드(C.Code)라는 코딩 솔루션 기업은 IT 기술을 토대로 고도화된 소프트웨어 개발 및 유지보수 서비스를 제공하는 기업입니다. 이 회사의 주요 비전은 고객사们의 비즈니스 목표를 달성하고, 최적의 코딩 솔루션을 제공하여 비즈니스를 성장시키는 것입니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_seecode.png',
   },
   {
@@ -482,7 +520,8 @@ export const STARTUPS = [
     revenue: BigInt(39000000),
     employees: 228,
     description: "에어코드는 개발자들이 보다 효율적이고 생산적으로 코드를 작성할 수 있도록 지원하는 플랫폼을 제공하는 코딩 솔루션 기업입니다. 이 기업은 개발자들의 코딩 경험을 개선하기 위해 다양한 도구와 서비스를 개발하고 제공합니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_airecode.png',
   },
   {
@@ -494,7 +533,8 @@ export const STARTUPS = [
     revenue: BigInt(40000000),
     employees: 229,
     description: "솔라코드는 전자 상거래 플랫폼을 제공한다고 가정해 보겠습니다. 솔라코드는 세상을 더욱 연결하게 하고 소비자와 기업 간의 경험을 더 용이하게하여, 소비자들이 자신감 있게 선택할 수 있도록하고 기업의 성장을 지원하기 위한 목표를 두었습니다..",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_solacode.png',
   },
   {
@@ -506,7 +546,8 @@ export const STARTUPS = [
     revenue: BigInt(41000000),
     employees: 230,
     description: "기업 41는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_solacode.png',
   },
   {
@@ -518,7 +559,8 @@ export const STARTUPS = [
     revenue: 42000000,
     employees: 231,
     description: "기업 42는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_airecode.png',
   },
   {
@@ -530,7 +572,8 @@ export const STARTUPS = [
     revenue: 43000000,
     employees: 232,
     description: "기업 43는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_solacode.png',
   },
   {
@@ -542,7 +585,8 @@ export const STARTUPS = [
     revenue: 44000000,
     employees: 233,
     description: "기업 44는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_ncode.png',
   },
   {
@@ -554,7 +598,8 @@ export const STARTUPS = [
     revenue: 45000000,
     employees: 234,
     description: "기업 45는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_bluecode.png',
   },
   {
@@ -566,7 +611,8 @@ export const STARTUPS = [
     revenue: 46000000,
     employees: 235,
     description: "기업 46는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_solacode.png',
   },
   {
@@ -578,7 +624,8 @@ export const STARTUPS = [
     revenue: 47000000,
     employees: 236,
     description: "기업 47는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_ncode.png',
   },
   {
@@ -590,7 +637,8 @@ export const STARTUPS = [
     revenue: 48000000,
     employees: 237,
     description: "기업 48는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_ncode.png',
   },
   {
@@ -602,7 +650,8 @@ export const STARTUPS = [
     revenue: 49000000,
     employees: 238,
     description: "기업 49는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_airecode.png',
   },
   {
@@ -614,7 +663,8 @@ export const STARTUPS = [
     revenue: 50000000,
     employees: 239,
     description: "기업 50는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_ncode.png',
   },
   {
@@ -626,7 +676,8 @@ export const STARTUPS = [
     revenue: 51000000,
     employees: 240,
     description: "기업 51는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_seecode.png',
   },
   {
@@ -638,7 +689,8 @@ export const STARTUPS = [
     revenue: 52000000,
     employees: 241,
     description: "기업 52는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_solacode.png',
   },
   {
@@ -650,7 +702,8 @@ export const STARTUPS = [
     revenue: 53000000,
     employees: 242,
     description: "기업 53는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_airecode.png',
   },
   {
@@ -662,7 +715,8 @@ export const STARTUPS = [
     revenue: 54000000,
     employees: 243,
     description: "기업 54는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_bluecode.png',
   },
   {
@@ -674,7 +728,8 @@ export const STARTUPS = [
     revenue: 55000000,
     employees: 244,
     description: "기업 55는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_ncode.png',
   },
   {
@@ -686,7 +741,8 @@ export const STARTUPS = [
     revenue: 56000000,
     employees: 245,
     description: "기업 56는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_seecode.png',
   },
   {
@@ -698,7 +754,8 @@ export const STARTUPS = [
     revenue: 57000000,
     employees: 246,
     description: "기업 57는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_airecode.png',
   },
   {
@@ -710,7 +767,8 @@ export const STARTUPS = [
     revenue: 58000000,
     employees: 247,
     description: "기업 58는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_solacode.png',
   },
   {
@@ -722,7 +780,8 @@ export const STARTUPS = [
     revenue: 59000000,
     employees: 248,
     description: "기업 59는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_ncode.png',
   },
   {
@@ -734,7 +793,8 @@ export const STARTUPS = [
     revenue: 60000000,
     employees: 249,
     description: "기업 60는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_airecode.png',
   },
   {
@@ -746,7 +806,8 @@ export const STARTUPS = [
     revenue: 61000000,
     employees: 250,
     description: "기업 61는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_ncode.png',
   },
   {
@@ -758,7 +819,8 @@ export const STARTUPS = [
     revenue: 62000000,
     employees: 251,
     description: "기업 62는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_seecode.png',
   },
   {
@@ -770,7 +832,8 @@ export const STARTUPS = [
     revenue: 63000000,
     employees: 252,
     description: "기업 63는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_solacode.png',
   },
   {
@@ -782,7 +845,8 @@ export const STARTUPS = [
     revenue: 64000000,
     employees: 253,
     description: "기업 64는 에듀테크 기업인데 기술을 교육하는 기업이라고 할 수 있을지도 모르겠습니다. 교육은 아주 중요합니다. 인류는 교육이 없었으면 발전될 수 없었을 겁니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_bluecode.png',
   },
   {
@@ -794,7 +858,10 @@ export const STARTUPS = [
     revenue: 65000000,
     employees: 254,
     description: "기업 65는 전자하거래 기업이 아닌 전자상거래 기업입니다. 전자기기를 사고 파는 전자상거래 기업이라고 할 수 있습니다. 그렇지만 전자기기만 팔지는 않을 겁니다. 그렇기 때문에 아주 모순된 기업이라고 할 수 있습니다.",
-    count: 0,
+    count: 8,
+    compareCount: 10,
     image: '/images/logo_airecode.png',
   },
 ]
+
+
