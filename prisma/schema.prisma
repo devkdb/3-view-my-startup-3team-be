@@ -22,11 +22,11 @@ model Startup {
   employees      Int            @default(0) // 고용 인원
   description    String
   count          Int            @default(0) // 선택 횟수
+  compareCount   Int            @default(0) // 비교 선택 횟수
   image          String?
   Category       Category       @relation(fields: [categoryId], references: [id])
   categoryId     Int
   mockInvestorId MockInvestor[]
-  Comparison     Comparison[]
 }
 
 model MockInvestor {
@@ -43,11 +43,4 @@ model Category {
   id        Int       @id @default(autoincrement())
   category  String    @db.VarChar(20)
   startupId Startup[]
-}
-
-model Comparison {
-  id        Int     @id @default(autoincrement())
-  compare   Boolean @default(false)
-  Startup   Startup @relation(fields: [startupId], references: [id], onDelete: Cascade)
-  startupId Int
 }
