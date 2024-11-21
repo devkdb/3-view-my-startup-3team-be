@@ -213,6 +213,6 @@ app.delete("/api/investments/:id", async (req, res) => {
 });
 
 // 프론트랑 겹치니깐 8000으로 바꿈.
-const port = process.env.PORT || 8001;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => console.log(`Server Started :${port}`));
