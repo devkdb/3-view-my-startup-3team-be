@@ -44,11 +44,14 @@ app.get(
   })
 );
 
-// 전체 기업 검색 기능(여기에 혁진님 거 넣어주시면 됩니다.)
-app.get("/startups/search", async (req, res) => {
+// 전체 기업 검색 기능
+app.get("/api/startups/search", async (req, res) => {
   const { searchKeyword, offset = 0, limit = 10 } = req.query;
   const offsetNum = parseInt(offset);
   const limitNum = parseInt(limit);
+
+  const replacer = (key, value) =>
+    typeof value === "bigint" ? value.toString() : value;
 
   try {
     const totalCount = await prisma.startup.count({
@@ -56,7 +59,8 @@ app.get("/startups/search", async (req, res) => {
         name: { contains: searchKeyword },
       },
     });
-    const startup = await prisma.startup.findMany({
+
+    const startups = await prisma.startup.findMany({
       orderBy: { id: "asc" },
       skip: offsetNum,
       take: limitNum,
@@ -64,8 +68,10 @@ app.get("/startups/search", async (req, res) => {
         name: { contains: searchKeyword },
       },
     });
-    const serializedStartups = JSON.stringify(startup, replacer);
+
     res.setHeader("X-Total-Count", totalCount);
+
+    const serializedStartups = JSON.stringify(startups, replacer);
     res.send(serializedStartups);
   } catch (error) {
     res.status(404).send({ message: error.message });

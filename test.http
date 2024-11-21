@@ -1,12 +1,12 @@
 ###
-GET http://localhost:8000/startups
+GET http://localhost:8000/api/startups
 
 ###
-GET http://localhost:8000/startups/4
+GET http://localhost:8000/api/startups/4
 
 
 ###
-GET http://localhost:8000/selections
+GET http://localhost:8000/api/selections
 
 ###
-GEt http://localhost:8000/startups/search?코드
+GEt http://localhost:8000/api/startups/search?searchKeyword=코
