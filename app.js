@@ -137,7 +137,7 @@ app.get('/api/investments', asyncHandler(async (req, res) => {
   res.send(JSON.stringify(responseData, replacer));
 }));
 
-// 특정 기업에 투자하기(POST: /api/investmentts)
+// 특정 기업에 투자하기(POST: /api/investments)
 app.post("/investments", async(req, res) => {
   assert(req.body, CreateInvest);
   try{
@@ -149,7 +149,7 @@ app.post("/investments", async(req, res) => {
 })
 
 
-// 투자 수정(PATCH: /api/investmentts/{investmentId})
+// 투자 수정(PATCH: /api/investments/{investmentId})
 app.patch("/api/investments/:id", async(req, res) => {
   const {id} = req.params;
   const numId = parseInt(id, 10);
@@ -165,7 +165,7 @@ app.patch("/api/investments/:id", async(req, res) => {
   }catch(error){res.status(404).send({message: error.message}); }
 })
 
-// 투자 삭제(DELETE: /api/investmentts/{investmentId})
+// 투자 삭제(DELETE: /api/investments/{investmentId})
 app.delete("/api/investments/:id", async(req,res) => {
   const {id} = req.params;
   const numId = parseInt(id, 10);
