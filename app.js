@@ -6,9 +6,8 @@ import { PrismaClient } from '@prisma/client';
 import orderByStartup from './orderByFunction.js';
 import asyncHandler from './asyncHandlerFunction.js';
 import paginationHandler from './paginationHandler.js';
-// import { number } from 'superstruct';
-// import { CreateUser, PatchUser } from './structs.js';
-// import { assert } from 'superstruct';
+import { CreateInvest, PatchInvest } from './structs.js';
+import { assert } from 'superstruct';
 
 const prisma = new PrismaClient();
 
@@ -138,11 +137,49 @@ app.get('/api/investments', asyncHandler(async (req, res) => {
   res.send(JSON.stringify(responseData, replacer));
 }));
 
-// 특정 기업에 투자하기(POST: /api/investmentts/{investmentId})
+// 특정 기업에 투자하기(POST: /api/investments)
+app.post("/investments", async(req, res) => {
+  assert(req.body, CreateInvest);
+  try{
+    const createdInvest = await prisma.mockInvestor.create({
+      data: req.body,
+    });
+    const serializedInvest = JSON.stringify(createdInvest, replacer); res.send(serializedInvest);
+  }catch(error) {res.status(400).send({message: error.message}); }
+})
 
-// 투자 수정(PATCH: /api/investmentts/{investmentId})
 
-// 투자 삭제(DELETE: /api/investmentts/{investmentId})
+// 투자 수정(PATCH: /api/investments/{investmentId})
+app.patch("/api/investments/:id", async(req, res) => {
+  const {id} = req.params;
+  const numId = parseInt(id, 10);
+  assert (req.body, PatchInvest)
+  try{
+    const updateInvest = await prisma.mockInvestor.update({
+      data: req.body,
+      where: {
+        startupId: numId,
+      },
+    });
+    const serializedStartups = JSON.stringify(updateInvest, replacer); res.send(serializedStartups);
+  }catch(error){res.status(404).send({message: error.message}); }
+})
+
+// 투자 삭제(DELETE: /api/investments/{investmentId})
+app.delete("/api/investments/:id", async(req,res) => {
+  const {id} = req.params;
+  const numId = parseInt(id, 10);
+    const deleteInvest = await prisma.mockInvestor.findUnique({
+      where: {
+        id: numId
+      },
+    });
+    if(!deleteInvest){
+      return res.status(404).send({message: "투자가 존재하지 않습니다"});
+    }
+    await prisma.mockInvestor.delete({where: {id: numId}});
+    return res.status(200).send({message: "게시글이 삭제 되었습니다"});
+})
 
 // 프론트랑 겹치니깐 8000으로 바꿈.
 const port = process.env.PORT || 8001;
