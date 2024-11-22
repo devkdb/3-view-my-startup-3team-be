@@ -14,7 +14,7 @@
 
 임예지(https://github.com/Bluemoon105)
 
-최종훈(개인 Github 링크)
+최종훈(https://github.com/jonghun4)
 
 ## 프로젝트 소개
 
