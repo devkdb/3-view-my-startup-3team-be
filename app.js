@@ -220,7 +220,7 @@ app.get(
 );
 
 // 특정 기업에 투자하기(POST: /api/investments)
-app.post("/investments", async (req, res) => {
+app.post("/api/investments", async (req, res) => {
   assert(req.body, CreateInvest);
   try {
     const createdInvest = await prisma.mockInvestor.create({
