@@ -138,6 +138,37 @@ app.get(
   })
 );
 
+// 동적 URL과 쿼리스트링 같이 사용한 경우
+app.get(
+  "/api/startups/test/:startupsId/:comparisonIds",
+  asyncHandler(async (req, res) => {
+    const id = req.params.startupsId;
+    console.log(id);
+    const idNum = parseInt(id, 10);
+    const startup = await prisma.startup.findUniqueOrThrow({
+      where: { id: idNum },
+    });
+
+    const { order = "asc" } = req.query;
+    const orderBy = orderByStartup(order);
+
+    const ids = req.params.comparisonIds;
+    const arr = JSON.parse(ids);
+    console.log(arr, orderBy);
+
+    const startups = await prisma.startup.findMany({
+      orderBy,
+      where: {
+        id: {
+          in: arr,
+        },
+      },
+    });
+    startups.concat(startup);
+    res.send(JSON.stringify(startups, replacer));
+  })
+);
+
 /**
  * id와 같은 동적 url은 search 기능 하단에 배치하는 것이 좋다.
  */
@@ -196,7 +227,61 @@ app.get(
 
 // 나의 기업 선택하기(POST: /api/selections/{startupId}/myStartup)
 
-// 비교 기업 선택하기(POST: /api/selections/{startupId}/compareStartup)
+// 비교 기업 선택하기(PATCH: /api/selections/{startupId}/compareStartup)
+// PATCH http://localhost:8000/api/startups/selections?startupId=5&compareIds=48,17,15
+app.patch("/api/startups/selections", async (req, res) => {
+  const { startupId, compareIds } = req.query;
+
+  if (!startupId) {
+    return res.status(400).json({ error: "startupId is required" });
+  }
+
+  const startupIdNum = parseInt(startupId, 10);
+  if (isNaN(startupIdNum)) {
+    return res.status(400).json({ error: "Invalid startupId format" });
+  }
+
+  let compareIdsArray = [];
+  if (compareIds) {
+    compareIdsArray = compareIds
+      .split(",")
+      .map((id) => parseInt(id, 10))
+      .filter((id) => !isNaN(id));
+  }
+
+  try {
+    // 선택한 기업의 count 증가
+    const updatedSelectStartup = await prisma.startup.update({
+      where: { id: startupIdNum },
+      data: {
+        count: {
+          increment: 1,
+        },
+      },
+    });
+
+    // 비교 대상 기업들의 compareCount 증가
+    const updatedCompareStartups = await prisma.startup.updateMany({
+      where: { id: { in: compareIdsArray } },
+      data: {
+        compareCount: {
+          increment: 1,
+        },
+      },
+    });
+
+    // 응답 데이터 형식화
+    const responseData = {
+      selectedStartup: updatedSelectStartup,
+      updatedCompareStartupsCount: updatedCompareStartups.count,
+    };
+
+    // BigInt 값을 문자열로 변환하여 JSON 응답 생성
+    res.send(JSON.stringify(responseData, replacer));
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 // 전체 투자 현황 조회
 app.get(

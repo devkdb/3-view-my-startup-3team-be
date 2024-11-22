@@ -16,3 +16,9 @@ GEt http://localhost:8000/api/startups/search?searchKeyword=코
 GET http://localhost:8000/api/startups/comparison?startupId=5&compareIds=48,17,15&order=employeesAsc
 
 //asc: 오름차순, desc:내림차순, 사용되는 order는 actualInvest(누적 투자금액),revenue(매출액),employees(고용 인원)
+
+###
+GET http://localhost:8000/api/startups/test/5/[2,4,8,17,25,33]?&order=id
+
+###
+PATCH http://localhost:8000/api/startups/selections?startupId=2&compareIds=4,8,17,25,33
