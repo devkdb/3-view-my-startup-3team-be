@@ -45,18 +45,23 @@ app.get(
 );
 
 // 전체 기업 검색 기능
-app.get("/api/startups/search", async (req, res) => {
-  const { searchKeyword, offset = 0, limit = 10 } = req.query;
-  const offsetNum = parseInt(offset);
-  const limitNum = parseInt(limit);
+app.get(
+  "/api/startups/search",
+  asyncHandler(async (req, res) => {
+    const { searchKeyword, offset = 0, limit = 10 } = req.query;
+    const offsetNum = parseInt(offset);
+    const limitNum = parseInt(limit);
 
-  const replacer = (key, value) =>
-    typeof value === "bigint" ? value.toString() : value;
+    const replacer = (key, value) =>
+      typeof value === "bigint" ? value.toString() : value;
 
-  try {
+    if (!searchKeyword.trim()) {
+      return res.status(400).send({ message: "검색어가 비어 있습니다." });
+    }
+
     const totalCount = await prisma.startup.count({
       where: {
-        name: { contains: searchKeyword },
+        name: { contains: searchKeyword, mode: "insensitive" },
       },
     });
 
@@ -65,18 +70,23 @@ app.get("/api/startups/search", async (req, res) => {
       skip: offsetNum,
       take: limitNum,
       where: {
-        name: { contains: searchKeyword },
+        name: { contains: searchKeyword, mode: "insensitive" },
       },
     });
 
-    res.setHeader("X-Total-Count", totalCount);
+    const totalPages = Math.ceil(totalCount / limitNum);
+    const hasNextPage = offsetNum + limitNum < totalCount;
 
-    const serializedStartups = JSON.stringify(startups, replacer);
-    res.send(serializedStartups);
-  } catch (error) {
-    res.status(404).send({ message: error.message });
-  }
-});
+    res.send({
+      totalCount,
+      totalPages,
+      hasNextPage,
+      startups: startups.map((startup) =>
+        JSON.parse(JSON.stringify(startup, replacer))
+      ),
+    });
+  })
+);
 
 // 내 기업과 비교 대상 기업들 비교하기(정렬, /api/startups/comparsion)
 

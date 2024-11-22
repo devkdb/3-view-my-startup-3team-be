@@ -25,7 +25,7 @@ async function main() {
 
   await Promise.all(
     INVESTORS.map(async (mockInvestor) => {
-      await prisma.mockInvestor.create({data:mockInvestor});
+      await prisma.mockInvestor.create({ data: mockInvestor });
     })
   );
 
