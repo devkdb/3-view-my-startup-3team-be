@@ -52,9 +52,6 @@ app.get(
     const offsetNum = parseInt(offset);
     const limitNum = parseInt(limit);
 
-    const replacer = (key, value) =>
-      typeof value === "bigint" ? value.toString() : value;
-
     if (!searchKeyword.trim()) {
       return res.status(400).send({ message: "검색어가 비어 있습니다." });
     }
@@ -72,6 +69,7 @@ app.get(
       where: {
         name: { contains: searchKeyword, mode: "insensitive" },
       },
+      include: { Category: true },
     });
 
     const totalPages = Math.ceil(totalCount / limitNum);
