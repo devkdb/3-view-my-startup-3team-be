@@ -89,6 +89,54 @@ app.get(
 );
 
 // 내 기업과 비교 대상 기업들 비교하기(정렬, /api/startups/comparsion)
+app.get(
+  "/api/startups/comparison",
+  asyncHandler(async (req, res) => {
+    const { startupId, compareIds, limit = 5, order = "id" } = req.query;
+    if (!startupId) {
+      return res.status(400).json({ error: "startupId is required" });
+    }
+    const startupIdNum = parseInt(startupId, 10);
+    if (isNaN(startupIdNum)) {
+      return res.status(400).json({ error: "Invalid startupId format" });
+    }
+    //진한님이 말해준 배열에서 생각해봄
+    let compareIdsArray = [];
+    if (compareIds) {
+      compareIdsArray = compareIds.split(",").map((id) => parseInt(id, 10));
+    }
+    const limitNum = Math.min(parseInt(limit), 5); //limit을 최대 5로 지정
+    const orderBy = orderByStartup(order); // 정렬 기준
+    try {
+      //내가 선택한 기업
+      const selectedStartup = await prisma.startup.findUnique({
+        where: { id: startupIdNum },
+        include: { Category: true },
+      });
+      if (!selectedStartup) {
+        return res.status(404).json({ error: "Startup not found" }); //없으면 오류
+      }
+      //비교할 기업
+      const comparisonStartups = await prisma.startup.findMany({
+        where: {
+          id: { in: compareIdsArray },
+          NOT: { id: selectedStartup.id }, //내가 선택한 기업은 제외
+        },
+        orderBy: orderBy,
+        take: limitNum,
+        include: { Category: true },
+      });
+      const responseData = {
+        startups: comparisonStartups,
+      };
+      res.send(JSON.stringify(responseData, replacer));
+    } catch (error) {
+      //예외처리
+      console.error(error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  })
+);
 
 /**
  * id와 같은 동적 url은 search 기능 하단에 배치하는 것이 좋다.
