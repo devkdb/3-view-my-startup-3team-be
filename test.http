@@ -22,3 +22,7 @@ GET http://localhost:8000/api/startups/test/5/[2,4,8,17,25,33]?&order=id
 
 ###
 PATCH http://localhost:8000/api/startups/selections?startupId=2&compareIds=4,8,17,25,33
+
+###
+
+PATCH http://localhost:8000/api/selections/1/myStartup

@@ -98,41 +98,32 @@ app.get(
     if (isNaN(startupIdNum)) {
       return res.status(400).json({ error: "Invalid startupId format" });
     }
-    //진한님이 말해준 배열에서 생각해봄
     let compareIdsArray = [];
     if (compareIds) {
       compareIdsArray = compareIds.split(",").map((id) => parseInt(id, 10));
     }
-    const limitNum = Math.min(parseInt(limit), 5); //limit을 최대 5로 지정
-    const orderBy = orderByStartup(order); // 정렬 기준
-    try {
-      //내가 선택한 기업
-      const selectedStartup = await prisma.startup.findUnique({
-        where: { id: startupIdNum },
-        include: { Category: true },
-      });
-      if (!selectedStartup) {
-        return res.status(404).json({ error: "Startup not found" }); //없으면 오류
-      }
-      //비교할 기업
-      const comparisonStartups = await prisma.startup.findMany({
-        where: {
-          id: { in: compareIdsArray },
-          NOT: { id: selectedStartup.id }, //내가 선택한 기업은 제외
-        },
-        orderBy: orderBy,
-        take: limitNum,
-        include: { Category: true },
-      });
-      const responseData = {
-        startups: comparisonStartups,
-      };
-      res.send(JSON.stringify(responseData, replacer));
-    } catch (error) {
-      //예외처리
-      console.error(error);
-      res.status(500).json({ error: "Internal Server Error" });
+    const limitNum = Math.min(parseInt(limit), 5);
+    const orderBy = orderByStartup(order);
+    const selectedStartup = await prisma.startup.findUnique({
+      where: { id: startupIdNum },
+      include: { Category: true },
+    });
+    if (!selectedStartup) {
+      return res.status(404).json({ error: "Startup not found" });
     }
+    const comparisonStartups = await prisma.startup.findMany({
+      where: {
+        id: { in: compareIdsArray },
+        NOT: { id: selectedStartup.id },
+      },
+      orderBy: orderBy,
+      take: limitNum,
+      include: { Category: true },
+    });
+    const responseData = {
+      startups: comparisonStartups,
+    };
+    res.send(JSON.stringify(responseData, replacer));
   })
 );
 
@@ -192,7 +183,22 @@ app.get(
   })
 );
 
-// 나의 기업 선택하기(POST: /api/selections/{startupId}/myStartup)
+// 나의 기업 선택하기(PATCH: /api/selections/{startupId}/myStartup)
+app.patch(
+  "/api/selections/:startupId/myStartup",
+  asyncHandler(async (req, res) => {
+    const { startupId } = req.params;
+    const countUpdatedStartup = await prisma.startup.update({
+      where: { id: parseInt(startupId) },
+      data: {
+        count: {
+          increment: 1,
+        },
+      },
+    });
+    res.send(JSON.stringify(countUpdatedStartup, replacer));
+  })
+);
 
 // 비교 기업 선택하기(PATCH: /api/selections/?startupId=2&compareIds=4,8,17,25,33)
 app.patch("/api/startups/selections", async (req, res) => {
