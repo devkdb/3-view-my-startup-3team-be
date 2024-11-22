@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: '*', credentials: true}));
 
 // BigInt 값을 문자열로 변환하여 JSON 응답 생성
 const replacer = (key, value) => {
@@ -220,7 +220,7 @@ app.get(
 );
 
 // 특정 기업에 투자하기(POST: /api/investments)
-app.post("/investments", async (req, res) => {
+app.post("/api/investments", async (req, res) => {
   assert(req.body, CreateInvest);
   try {
     const createdInvest = await prisma.mockInvestor.create({
