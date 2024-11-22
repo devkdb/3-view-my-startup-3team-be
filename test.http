@@ -4,6 +4,8 @@ GET http://localhost:8000/api/startups
 ###
 GET http://localhost:8000/api/startups/4
 
+###
+GET http://localhost:8000/api/startups/72/rank
 
 ###
 GET http://localhost:8000/api/selections
