@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: '*', credentials: true}));
+app.use(cors({ origin: "*", credentials: true }));
 
 // BigInt 값을 문자열로 변환하여 JSON 응답 생성
 const replacer = (key, value) => {
@@ -194,7 +194,76 @@ app.get(
 
 // 나의 기업 선택하기(POST: /api/selections/{startupId}/myStartup)
 
-// 비교 기업 선택하기(POST: /api/selections/{startupId}/compareStartup)
+// 비교 기업 선택하기(PATCH: /api/selections/?startupId=2&compareIds=4,8,17,25,33)
+app.patch("/api/startups/selections", async (req, res) => {
+  const { startupId, compareIds } = req.query;
+
+  if (!startupId) {
+    return res.status(400).json({ error: "startupId is required" });
+  }
+
+  const startupIdNum = parseInt(startupId, 10);
+  if (isNaN(startupIdNum)) {
+    return res.status(400).json({ error: "Invalid startupId format" });
+  }
+
+  let compareIdsArray = [];
+  if (compareIds) {
+    compareIdsArray = compareIds
+      .split(",")
+      .map((id) => parseInt(id, 10))
+      .filter((id) => !isNaN(id));
+  }
+
+  try {
+    // 트랜잭션 시작
+    const [updatedSelectStartup, updateCompareCountResult] =
+      await prisma.$transaction([
+        // 선택된 스타트업의 count 증가 후 현재 count 가져오기
+        prisma.startup.update({
+          where: { id: startupIdNum },
+          data: {
+            count: {
+              increment: 1,
+            },
+          },
+          select: { count: true }, // count 값만 가져오기
+        }),
+
+        // 비교 대상 기업들의 compareCount 증가
+        prisma.startup.updateMany({
+          where: { id: { in: compareIdsArray } },
+          data: {
+            compareCount: {
+              increment: 1,
+            },
+          },
+        }),
+      ]);
+
+    // 업데이트 후 비교 대상 기업들의 각기 compareCount 값 가져오기
+    const updatedCompareStartups = await prisma.startup.findMany({
+      where: { id: { in: compareIdsArray } },
+      select: { id: true, compareCount: true }, // id와 compareCount만 가져오기
+    });
+
+    // 응답 데이터 형식화
+    const responseData = {
+      selectedStartupCount: updatedSelectStartup.count,
+      compareStartupsCounts: updatedCompareStartups.map(
+        ({ id, compareCount }) => ({
+          id,
+          compareCount,
+        })
+      ),
+    };
+
+    // BigInt 값들을 처리한 후 JSON 응답
+    res.send(JSON.stringify(responseData, replacer));
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 // 전체 투자 현황 조회
 app.get(
