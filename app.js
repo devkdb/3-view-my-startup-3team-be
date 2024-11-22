@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: '*', credentials: true}));
 
 // BigInt 값을 문자열로 변환하여 JSON 응답 생성
 const replacer = (key, value) => {
@@ -52,9 +52,6 @@ app.get(
     const offsetNum = parseInt(offset);
     const limitNum = parseInt(limit);
 
-    const replacer = (key, value) =>
-      typeof value === "bigint" ? value.toString() : value;
-
     if (!searchKeyword.trim()) {
       return res.status(400).send({ message: "검색어가 비어 있습니다." });
     }
@@ -72,6 +69,7 @@ app.get(
       where: {
         name: { contains: searchKeyword, mode: "insensitive" },
       },
+      include: { Category: true },
     });
 
     const totalPages = Math.ceil(totalCount / limitNum);
@@ -307,7 +305,7 @@ app.get(
 );
 
 // 특정 기업에 투자하기(POST: /api/investments)
-app.post("/investments", async (req, res) => {
+app.post("/api/investments", async (req, res) => {
   assert(req.body, CreateInvest);
   try {
     const createdInvest = await prisma.mockInvestor.create({
