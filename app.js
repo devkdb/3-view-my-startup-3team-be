@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: '*', credentials: true}));
 
 // BigInt 값을 문자열로 변환하여 JSON 응답 생성
 const replacer = (key, value) => {
