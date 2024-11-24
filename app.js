@@ -358,7 +358,7 @@ app.patch("/api/investments/:id", async (req, res) => {
     const updateInvest = await prisma.mockInvestor.update({
       data: req.body,
       where: {
-        startupId: numId,
+        id: numId,
       },
     });
     const serializedStartups = JSON.stringify(updateInvest, replacer);
