@@ -29,14 +29,3 @@ PATCH http://localhost:8000/api/startups/selections?startupId=2&compareIds=4,8,1
 
 PATCH http://localhost:8000/api/selections/1/myStartup
 
-###
-PATCH http://localhost:8000/api/investments/5
-Content-Type: application/json
-
-{
-  "name": "유지민",
-  "investAmount": 500000,
-  "comment": "투자 테스트",
-  "password": "1234",
-  "startupId": 5
-}
