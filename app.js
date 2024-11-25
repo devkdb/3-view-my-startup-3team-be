@@ -48,7 +48,7 @@ app.get(
 app.get(
   "/api/startups/search",
   asyncHandler(async (req, res) => {
-    const { searchKeyword, offset = 0, limit = 10 } = req.query;
+    const { searchKeyword, offset = 0, limit = 10, order = "id" } = req.query;
     const offsetNum = parseInt(offset);
     const limitNum = parseInt(limit);
 
@@ -62,8 +62,9 @@ app.get(
       },
     });
 
+    const orderBy = orderByStartup(order);
     const startups = await prisma.startup.findMany({
-      orderBy: { id: "asc" },
+      orderBy,
       skip: offsetNum,
       take: limitNum,
       where: {
