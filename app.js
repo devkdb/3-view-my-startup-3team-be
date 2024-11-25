@@ -148,19 +148,22 @@ app.get(
  */
 // 내 기업의 순위와 근접한 순위의 기업 정보 확인
 //(GET: /api/startups/{ startupsId }/rank)
-app.get("/api/startups/:startupsId/rank",
+app.get(
+  "/api/startups/:startupsId/rank",
   asyncHandler(async (req, res) => {
-    const { order = 'revenueDesc' } = req.query;
+    const { order = "revenueDesc" } = req.query;
     const { startupsId } = req.params;
     const idNum = parseInt(startupsId);
     const orderBy = orderByStartup(order);
 
     const allStartups = await prisma.startup.findMany({
       orderBy,
-      include: { Category: true }
+      include: { Category: true },
     });
 
-    const selectStartupIndex = allStartups.findIndex(startup => startup.id === idNum);
+    const selectStartupIndex = allStartups.findIndex(
+      (startup) => startup.id === idNum
+    );
     let selectStartupRank = [
       allStartups[selectStartupIndex - 2],
       allStartups[selectStartupIndex - 1],
@@ -175,31 +178,30 @@ app.get("/api/startups/:startupsId/rank",
     }
     if (allStartups[selectStartupIndex - 1] === undefined) {
       selectStartupRank.shift();
-      selectStartupRank.push(
-        allStartups[selectStartupIndex + 4]
-      );
+      selectStartupRank.push(allStartups[selectStartupIndex + 4]);
     }
-    if (allStartups[selectStartupIndex + 1] === undefined &&
+    if (
+      allStartups[selectStartupIndex + 1] === undefined &&
       allStartups[selectStartupIndex + 2] !== undefined
     ) {
-      const arr = selectStartupRank.filter(item => item);
-      selectStartupRank.splice(0)
-      selectStartupRank.push(...arr)
+      const arr = selectStartupRank.filter((item) => item);
+      selectStartupRank.splice(0);
+      selectStartupRank.push(...arr);
       selectStartupRank.unshift(allStartups[selectStartupIndex - 3]);
       selectStartupRank.unshift(allStartups[selectStartupIndex - 4]);
     }
-    
-    if (allStartups[selectStartupIndex + 2] === undefined
-    ) {
-      const arr = selectStartupRank.filter(item => item);
-      selectStartupRank.splice(0)
-      selectStartupRank.push(...arr)
+
+    if (allStartups[selectStartupIndex + 2] === undefined) {
+      const arr = selectStartupRank.filter((item) => item);
+      selectStartupRank.splice(0);
+      selectStartupRank.push(...arr);
       selectStartupRank.unshift(allStartups[selectStartupIndex - 3]);
       selectStartupRank.unshift(allStartups[selectStartupIndex - 4]);
     }
 
     res.send(JSON.stringify(selectStartupRank, replacer));
-  }));
+  })
+);
 
 // 기업 선택 횟수 조회
 app.get(
