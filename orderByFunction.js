@@ -18,10 +18,14 @@ const orderByStartup = (order) => {
       return { employees: 'desc' };
     case 'employeesAsc':
       return { employees: 'asc' };
-    case 'countDesc':
-      return { count: 'desc' };
-    case 'countAsc':
-      return { count: 'asc' };
+    case 'selectCountDesc':
+      return { selectCount: 'desc' };
+    case 'selectCountAsc':
+      return { selectCount: 'asc' };
+    case 'compareCountDesc':
+      return { compareCount: 'desc' };
+    case 'compareCountAsc':
+      return { compareCount: 'asc' };
     default:
       return { id: 'asc' };
   }
