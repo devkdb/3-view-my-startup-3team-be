@@ -11,7 +11,7 @@ GET http://localhost:8000/api/startups/72/rank
 GET http://localhost:8000/api/selections
 
 ###
-GEt http://localhost:8000/api/startups/search?searchKeyword=코
+GEt http://localhost:8000/api/startups/search?order=simInvestDesc&searchKeyword=코
 
 ###
 
