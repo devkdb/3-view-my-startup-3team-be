@@ -207,7 +207,7 @@ app.get(
 app.get(
   "/api/selections",
   asyncHandler(async (req, res) => {
-    const { offset = 0, limit = 10, order = "countDesc" } = req.query;
+    const { offset = 0, limit = 10, order = "selectCountDesc" } = req.query;
     const offsetNum = parseInt(offset);
     const limitNum = parseInt(limit);
 
@@ -234,7 +234,7 @@ app.patch(
     const countUpdatedStartup = await prisma.startup.update({
       where: { id: parseInt(startupId) },
       data: {
-        count: {
+        selectCount: {
           increment: 1,
         },
       },
@@ -272,11 +272,11 @@ app.patch("/api/startups/selections", async (req, res) => {
         prisma.startup.update({
           where: { id: startupIdNum },
           data: {
-            count: {
+            selectCount: {
               increment: 1,
             },
           },
-          select: { count: true }, // count 값만 가져오기
+          select: { selectCount: true }, // count 값만 가져오기
         }),
 
         // 비교 대상 기업들의 compareCount 증가
@@ -298,7 +298,7 @@ app.patch("/api/startups/selections", async (req, res) => {
 
     // 응답 데이터 형식화
     const responseData = {
-      selectedStartupCount: updatedSelectStartup.count,
+      selectedStartupCount: updatedSelectStartup.selectCount,
       compareStartupsCounts: updatedCompareStartups.map(
         ({ id, compareCount }) => ({
           id,
