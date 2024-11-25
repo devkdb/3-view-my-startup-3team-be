@@ -226,23 +226,6 @@ app.get(
   })
 );
 
-// 나의 기업 선택하기(PATCH: /api/selections/{startupId}/myStartup)
-app.patch(
-  "/api/selections/:startupId/myStartup",
-  asyncHandler(async (req, res) => {
-    const { startupId } = req.params;
-    const countUpdatedStartup = await prisma.startup.update({
-      where: { id: parseInt(startupId) },
-      data: {
-        selectCount: {
-          increment: 1,
-        },
-      },
-    });
-    res.send(JSON.stringify(countUpdatedStartup, replacer));
-  })
-);
-
 // 비교 기업 선택하기(PATCH: /api/selections/?startupId=2&compareIds=4,8,17,25,33)
 app.patch("/api/startups/selections", async (req, res) => {
   const { startupId, compareIds } = req.query;
