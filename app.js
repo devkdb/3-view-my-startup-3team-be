@@ -250,45 +250,43 @@ app.patch("/api/startups/selections", async (req, res) => {
 
   try {
     // 트랜잭션 시작
-    const [updatedSelectStartup, updateCompareCountResult] =
-      await prisma.$transaction([
-        // 선택된 스타트업의 count 증가 후 현재 count 가져오기
-        prisma.startup.update({
-          where: { id: startupIdNum },
-          data: {
-            selectCount: {
-              increment: 1,
-            },
+    const [updatedSelectStartup] = await prisma.$transaction([
+      // 선택된 스타트업의 count 증가 후 현재 count 가져오기
+      prisma.startup.update({
+        where: { id: startupIdNum },
+        data: {
+          selectCount: {
+            increment: 1,
           },
-          select: { selectCount: true }, // count 값만 가져오기
-        }),
+        },
+        select: { selectCount: true }, // count 값만 가져오기
+      }),
 
-        // 비교 대상 기업들의 compareCount 증가
-        prisma.startup.updateMany({
-          where: { id: { in: compareIdsArray } },
-          data: {
-            compareCount: {
-              increment: 1,
-            },
+      // 비교 대상 기업들의 compareCount 증가
+      prisma.startup.updateMany({
+        where: { id: { in: compareIdsArray } },
+        data: {
+          compareCount: {
+            increment: 1,
           },
-        }),
-      ]);
+        },
+      }),
+    ]);
 
-    // 업데이트 후 비교 대상 기업들의 각기 compareCount 값 가져오기
+    // 선택된 스타트업의 전체 정보 가져오기
+    const selectedStartup = await prisma.startup.findUnique({
+      where: { id: startupIdNum },
+    });
+
+    // 업데이트 후 비교 대상 기업들의 모든 정보 가져오기
     const updatedCompareStartups = await prisma.startup.findMany({
       where: { id: { in: compareIdsArray } },
-      select: { id: true, compareCount: true }, // id와 compareCount만 가져오기
     });
 
     // 응답 데이터 형식화
     const responseData = {
-      selectedStartupCount: updatedSelectStartup.selectCount,
-      compareStartupsCounts: updatedCompareStartups.map(
-        ({ id, compareCount }) => ({
-          id,
-          compareCount,
-        })
-      ),
+      selectedStartup: selectedStartup, // 선택된 스타트업의 전체 정보
+      compareStartups: updatedCompareStartups, // 비교 대상 기업들의 모든 정보
     };
 
     // BigInt 값들을 처리한 후 JSON 응답
@@ -433,6 +431,8 @@ app.delete(
     const { id } = req.params;
     const { password } = req.body;
     const numId = parseInt(id, 10);
+
+    console.log(`numId:${numId}, password:${password}`);
 
     // 투자 정보 조회
     const deleteInvest = await prisma.mockInvestor.findUnique({
