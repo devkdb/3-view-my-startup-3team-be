@@ -273,20 +273,22 @@ app.patch("/api/startups/selections", async (req, res) => {
       }),
     ]);
 
-    // 선택된 스타트업의 전체 정보 가져오기
+    // 선택된 스타트업의 전체 정보와 카테고리 정보 가져오기
     const selectedStartup = await prisma.startup.findUnique({
       where: { id: startupIdNum },
+      include: { Category: true }, // 카테고리 정보 포함
     });
 
-    // 업데이트 후 비교 대상 기업들의 모든 정보 가져오기
+    // 업데이트 후 비교 대상 기업들의 모든 정보와 카테고리 정보 가져오기
     const updatedCompareStartups = await prisma.startup.findMany({
       where: { id: { in: compareIdsArray } },
+      include: { Category: true }, // 카테고리 정보 포함
     });
 
     // 응답 데이터 형식화
     const responseData = {
-      selectedStartup: selectedStartup, // 선택된 스타트업의 전체 정보
-      compareStartups: updatedCompareStartups, // 비교 대상 기업들의 모든 정보
+      selectedStartup: selectedStartup, // 선택된 스타트업의 전체 정보와 카테고리
+      compareStartups: updatedCompareStartups, // 비교 대상 기업들의 모든 정보와 카테고리
     };
 
     // BigInt 값들을 처리한 후 JSON 응답
