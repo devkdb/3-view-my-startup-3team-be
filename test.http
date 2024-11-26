@@ -28,3 +28,11 @@ PATCH http://localhost:8000/api/selections/1/myStartup
 
 ###
 GET http://localhost:8000/api/investors?startupId=1&offset=0&limit=5
+
+###
+DELETE http://localhost:8000/api/investments/25
+Content-Type: application/json
+
+{
+    "password": "pw1234"
+}

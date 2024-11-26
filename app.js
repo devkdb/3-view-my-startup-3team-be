@@ -411,7 +411,7 @@ app.patch("/api/investments/:id", async (req, res) => {
 });
 
 // 투자 삭제(DELETE: /api/investments/{investmentId})
-app.delete("/api/investments/:id", async (req, res) => {
+app.delete("/api/investments/test/:id", async (req, res) => {
   const { id } = req.params;
   const numId = parseInt(id, 10);
   const deleteInvest = await prisma.mockInvestor.findUnique({
@@ -425,6 +425,42 @@ app.delete("/api/investments/:id", async (req, res) => {
   await prisma.mockInvestor.delete({ where: { id: numId } });
   return res.status(200).send({ message: "게시글이 삭제 되었습니다" });
 });
+
+// 투자 삭제 라우트 (asyncHandler 사용, password 비교)
+app.delete(
+  "/api/investments/:id",
+  asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const { password } = req.body;
+    const numId = parseInt(id, 10);
+
+    // 투자 정보 조회
+    const deleteInvest = await prisma.mockInvestor.findUnique({
+      where: { id: numId },
+    });
+
+    // 투자 정보 존재 여부 확인
+    if (!deleteInvest) {
+      const error = new Error("투자정보가 존재하지 않습니다");
+      error.status = 404;
+      throw error;
+    }
+
+    // 비밀번호 일치 여부 확인
+    if (deleteInvest.password !== password) {
+      const error = new Error("비밀번호가 일치하지 않습니다");
+      error.status = 401;
+      throw error;
+    }
+
+    // 비밀번호 일치하면 삭제 진행
+    await prisma.mockInvestor.delete({ where: { id: numId } });
+
+    return res
+      .status(200)
+      .send({ message: "투자 정보 게시글이 삭제되었습니다" });
+  })
+);
 
 // 프론트랑 겹치니깐 8000으로 바꿈.
 const port = process.env.PORT || 8000;
