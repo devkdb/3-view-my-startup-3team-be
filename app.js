@@ -321,6 +321,62 @@ app.get(
   })
 );
 
+// 내가 선택한 기업의 투자자 정보 얻어오기
+app.get(
+  "/api/investors",
+  asyncHandler(async (req, res) => {
+    const { startupId, offset = 0, limit = 5 } = req.query;
+
+    const offsetNum = parseInt(offset);
+    const limitNum = parseInt(limit);
+    const idNum = parseInt(startupId, 10);
+
+    console.log(`offsetNum:${offsetNum}, limitNum:${limitNum}, idNum:${idNum}`);
+
+    // 쿼리 파라미터 검증
+    if (!startupId || isNaN(idNum)) {
+      return res.status(400).send({ error: "Invalid startupId" });
+    }
+
+    if (isNaN(offsetNum) || isNaN(limitNum)) {
+      return res.status(400).send({ error: "Invalid offset or limit" });
+    }
+
+    // 전체 투자자 수 가져오기
+    const totalInvestors = await prisma.mockInvestor.count({
+      where: { startupId: idNum }, // startupId 기준으로 필터링. 해당 기업에 투자한 투자자 정보만 가져온다.
+    });
+
+    // 페이지네이션을 적용한 데이터 가져오기
+    const paginatedInvestors = await prisma.mockInvestor.findMany({
+      where: { startupId: idNum },
+      orderBy: { investAmount: "desc" }, // investAmount 기준으로 내림차순 정렬. 투자 금액이 큰 순서대로 정렬
+      skip: offsetNum,
+      take: limitNum,
+    });
+
+    // 랭킹 부여
+    const rankedInvestors = paginatedInvestors.map((investor, index) => ({
+      ...investor,
+      rank: offsetNum + index + 1, // 현재 페이지에 대한 랭킹 부여
+    }));
+
+    //const currentPage = Math.floor(offsetNum / limitNum) + 1; // 현재 페이지 계산
+    //const totalPages = Math.ceil(totalInvestors / limitNum); // 총 페이지 수 계산
+    //const hasNextPage = offsetNum + limitNum < totalInvestors; // 다음 페이지 존재 여부 확인
+
+    const responseData = {
+      totalInvestors,
+      //currentPage,
+      //totalPages,
+      //hasNextPage,
+      investors: rankedInvestors,
+    };
+
+    res.send(JSON.stringify(responseData, replacer));
+  })
+);
+
 // 특정 기업에 투자하기(POST: /api/investments)
 app.post("/api/investments", async (req, res) => {
   assert(req.body, CreateInvest);
